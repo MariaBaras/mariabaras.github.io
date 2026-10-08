@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ماريا باراس — تكنولوجيا المعلومات</title>
+
+<style>
+:root{
+  color-scheme:light dark;
+  --bg:light-dark(#f7f8fc,#0b0d12);
+  --surface:light-dark(#fff,#12151c);
+  --text:light-dark(#10131a,#f5f7fb);
+  --muted:light-dark(#626a78,#9ca5b5);
+  --line:light-dark(#e7e9ef,#252b36);
+  --accent:#7c5cff;
+  --accent2:#5b8cff
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+  background:var(--bg);
+  color:var(--text)
+}
+
+#app{
+  min-height:100vh;
+  background:var(--bg)
+}
+
+a{
+  text-decoration:none;
+  color:inherit
+}
+
+.nav{
+  max-width:1080px;
+  margin:auto;
+  padding:22px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+
+.logo{
+  font-weight:800;
+  font-size:20px
+}
+
+.logo span{
+  color:var(--accent)
+}
+
+.links{
+  display:flex;
+  gap:24px;
+  color:var(--muted);
+  font-size:14px
+}
+
+.links a:hover{
+  color:var(--text)
+}
+
+.hero{
+  max-width:1080px;
+  margin:auto;
+  padding:90px 24px 110px;
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  gap:60px;
+  align-items:center
+}
+
+.eyebrow{
+  color:var(--accent);
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-size:13px
+}
+
+.hero h1{
+  font-size:clamp(46px,7vw,78px);
+  line-height:.98;
+  margin:16px 0 24px;
+  letter-spacing:-.05em
+}
+
+.hero h1 span{
+  background:linear-gradient(120deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  color:transparent
+}
+
+.hero p{
+  font-size:19px;
+  line-height:1.7;
+  color:var(--muted);
+  max-width:650px
+}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  margin-top:30px;
+  flex-wrap:wrap
+}
+
+.btn{
+  padding:13px 20px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  font-weight:700
+}
+
+.primary{
+  background:var(--text);
+  color:var(--bg);
+  border-color:var(--text)
+}
+
+.glow{
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 35%,#a58dff,transparent 42%),
+    radial-gradient(circle at 70% 70%,#5b8cff,transparent 48%),
+    #171326;
+  box-shadow:0 0 90px #7057ff44;
+  margin:auto
+}
+
+.section{
+  max-width:1080px;
+  margin:auto;
+  padding:80px 24px
+}
+
+.section h2{
+  font-size:36px;
+  margin:0 0 14px;
+  letter-spacing:-.03em
+}
+
+.lead{
+  color:var(--muted);
+  line-height:1.7;
+  max-width:700px
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:34px
+}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:24px
+}
+
+.card h3{
+  margin:8px 0 10px
+}
+
+.card p{
+  color:var(--muted);
+  line-height:1.65;
+  font-size:14px
+}
+
+.tag{
+  display:inline-block;
+  padding:7px 10px;
+  border-radius:999px;
+  background:light-dark(#f0edff,#211b39);
+  color:var(--accent);
+  font-size:12px;
+  font-weight:700
+}
+
+.project{
+  min-height:250px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between
+}
+
+.project .num{
+  font-size:48px;
+  font-weight:800;
+  color:light-dark(#ddd8ff,#302951)
+}
+
+.contact{
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:40px;
+  background:
+    linear-gradient(
+      135deg,
+      light-dark(#fff,#141823),
+      light-dark(#f0edff,#18142b)
+    )
+}
+
+.contact h2{
+  margin-bottom:10px
+}
+
+.footer{
+  max-width:1080px;
+  margin:auto;
+  padding:30px 24px 50px;
+  color:var(--muted);
+  font-size:13px;
+  display:flex;
+  justify-content:space-between
+}
+
+.sep{
+  height:1px;
+  background:var(--line);
+  max-width:1080px;
+  margin:auto
+}
+
+@media(max-width:760px){
+
+  .links{
+    display:none
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:55px
+  }
+
+  .glow{
+    width:210px;
+    height:210px
+  }
+
+  .grid{
+    grid-template-columns:1fr
+  }
+
+  .section{
+    padding:60px 24px
+  }
+
+  .hero p{
+    font-size:17px
+  }
+
+  .footer{
+    display:block
+  }
+
+  .footer div+div{
+    margin-top:8px
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="app">
+
+<header class="nav">
+  <div class="logo">
+    Maria<span>Baras</span>
+  </div>
+
+  <nav class="links">
+    <a href="#about">نبذة عني</a>
+    <a href="#skills">المهارات</a>
+    <a href="#projects">المشاريع</a>
+    <a href="#contact">تواصل معي</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+
+  <div>
+
+    <div class="eyebrow">
+      تكنولوجيا المعلومات
+    </div>
+
+    <h1>
+      تقنية، أنظمة و<span>حل المشكلات.</span>
+    </h1>
+
+    <p>
+      خريجة تكنولوجيا معلومات أعمل على بناء حلول برمجية عملية،
+      وأبحث عن فرصة تقنية أستطيع من خلالها توظيف مهاراتي في
+      البرمجة وتحليل الأنظمة والمساهمة ضمن فريق تقني.
+    </p>
+
+    <div class="buttons">
+      <a class="btn primary" href="#projects">
+        مشاهدة المشاريع
+      </a>
+
+      <a class="btn" href="#contact">
+        تواصل معي
+      </a>
+    </div>
+
+  </div>
+
+  <div class="glow" aria-hidden="true"></div>
+
+</section>
+
+
+<section class="section" id="about">
+
+  <h2>نبذة عني</h2>
+
+  <p class="lead">
+    أنا ماريا باراس، خريجة تكنولوجيا معلومات، أهتم بتحويل
+    احتياجات العمل إلى حلول تقنية واضحة وعملية. لدي اهتمام
+    وخبرة تطبيقية في جمع المتطلبات، تحليل الأنظمة، تطوير
+    البرمجيات والعمل على المشاريع، وأسعى إلى تطوير مساري
+    المهني داخل بيئة تقنية احترافية.
+  </p>
+
+</section>
+
+
+<section class="section" id="skills">
+
+  <h2>المهارات</h2>
+
+  <div class="grid">
+
+    <div class="card">
+
+      <span class="tag">
+        تطوير البرمجيات
+      </span>
+
+      <h3>
+        Flutter & Dart
+      </h3>
+
+      <p>
+        تطوير واجهات تطبيقات متجاوبة، بناء تدفقات التطبيق
+        وتنظيم مشاريع Flutter بطريقة قابلة للصيانة.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <span class="tag">
+        تحليل الأنظمة
+      </span>
+
+      <h3>
+        المتطلبات والأنظمة
+      </h3>
+
+      <p>
+        جمع المتطلبات، فهم الأعمال، تحليل الأنظمة،
+        حالات الاستخدام ونمذجة العمليات.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <span class="tag">
+        تقنية المعلومات
+      </span>
+
+      <h3>
+        أدوات وهندسة البرمجيات
+      </h3>
+
+      <p>
+        Git وGitHub، التعامل مع APIs، قواعد البيانات،
+        مفاهيم هندسة البرمجيات وحل المشكلات.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section" id="projects">
+
+  <h2>مشاريع مختارة</h2>
+
+  <p class="lead">
+    مشاريع توضح قدرتي على فهم المشكلة، تحليل المتطلبات
+    وتحويلها إلى حلول برمجية عملية.
+  </p>
+
+
+  <div class="grid">
+
+
+    <div class="card project">
+
+      <div>
+
+        <div class="num">
+          01
+        </div>
+
+        <h3>
+          نظام صيدلية إلكترونية
+        </h3>
+
+        <p>
+          تحليل سير العمل لصيدلية إلكترونية وتصميم متطلبات
+          المنتجات، الوصفات، الطلبات، الإيداعات، حجز المخزون
+          وحالة التوصيل.
+        </p>
+
+      </div>
+
+      <span class="tag">
+        تحليل أنظمة · Flutter
+      </span>
+
+    </div>
+
+
+    <div class="card project">
+
+      <div>
+
+        <div class="num">
+          02
+        </div>
+
+        <h3>
+          منصة SAND للمساحات والدورات
+        </h3>
+
+        <p>
+          تحليل أعمال مساحة عمل ودورات تدريبية، وتحديد
+          الخدمات وقواعد الحجز والإيداع والموارد وسير العمليات.
+        </p>
+
+      </div>
+
+      <span class="tag">
+        جمع متطلبات · تحليل أنظمة
+      </span>
+
+    </div>
+
+
+    <div class="card project">
+
+      <div>
+
+        <div class="num">
+          03
+        </div>
+
+        <h3>
+          تدريب Git & GitHub
+        </h3>
+
+        <p>
+          إعداد محتوى تدريبي عملي حول إدارة الإصدارات،
+          المستودعات، الفروع، التعاون وحل مشكلات مشاريع الفرق.
+        </p>
+
+      </div>
+
+      <span class="tag">
+        Git · GitHub · تدريب
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section" id="contact">
+
+  <div class="contact">
+
+    <h2>
+      منفتحة على الفرص التقنية.
+    </h2>
+
+    <p class="lead">
+      أبحث عن فرصة أستطيع من خلالها المساهمة والتعلم بسرعة
+      والنمو ضمن فريق تقني قوي.
+    </p>
+
+    <div class="buttons">
+
+      <a
+        class="btn primary"
+        href="mailto:baras.maria01@gmail.com">
+        راسلني بالبريد
+      </a>
+
+      <a
+        class="btn"
+        href="https://github.com/MariaBaras"
+        target="_blank">
+        GitHub
+      </a>
+
+      <a
+        class="btn"
+        href="https://www.linkedin.com/in/maria-baras-b0603436a/"
+        target="_blank">
+        LinkedIn
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<div class="sep"></div>
+
+<footer class="footer">
+
+  <div>
+    © 2026 Maria Baras
+  </div>
+
+  <div>
+    تكنولوجيا المعلومات · اليمن
+  </div>
+
+</footer>
+
+</div>
+
+</body>
+</html>
